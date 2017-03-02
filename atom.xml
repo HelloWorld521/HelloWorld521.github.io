@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>codinghjy&#39;s blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-03-02T08:59:40.606Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>codinghjy</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一篇博客</title>
+    <link href="http://yoursite.com/2017/03/02/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2017/03/02/第一篇博客/</id>
+    <published>2017-03-02T05:36:32.000Z</published>
+    <updated>2017-03-02T08:59:40.606Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><em>做人没有梦想，跟咸鱼有什么区别</em></blockquote>
+
+<p><img src="/images/firstBlog.png" alt="Paste_Image.png"></p>
+<a id="more"></a>
+<h4 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h4><p>这个问题网上的答案数不胜数<br><em><a href="https://zhuanlan.zhihu.com/p/19743861?columnSlug=cnfeat" target="_blank" rel="external">为什么要写博客</a></em><br><em><a href="http://stormzhang.com/android/2016/03/04/why-i-keep-writing-blog/" target="_blank" rel="external">我为什么坚持写博客</a></em><br>对于个人而言</p>
+<ol>
+<li>记录自身成长过程是多么有意义的一件事。</li>
+<li>网上资料数不胜数，内容参差不齐，遇到问题自己整理解决并记录下来，供自己今后学习，也方便他人查阅。</li>
+<li>寻找志同道合的朋友</li>
+<li><a href="http://www.15yan.com/topic/chuang-zuo-de-mi-mi/i0sBdlKnryf/?f=wx" target="_blank" rel="external">为了保持逼格，不要停止写作</a></li>
+</ol>
+<h4 id="现阶段"><a href="#现阶段" class="headerlink" title="现阶段"></a>现阶段</h4><p>现阶段奋战javaWeb开发</p>
+<h4 id="个性签名"><a href="#个性签名" class="headerlink" title="个性签名"></a>个性签名</h4><p><em>talk is cheap, show me the code;</em></p>
+<h4 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h4><p>最后，如果你想联系我，请点击以下链接：</p>
+<p><a href="http://codinghjy.coding.me" target="_blank" rel="external">Blog@codinghjy</a></p>
+<p><a href="https://github.com/HelloWorld521" target="_blank" rel="external">Github@codinghjy</a></p>
+<p><a href="http://www.jianshu.com/u/98c02590617f" target="_blank" rel="external">jianshu@codinghjy</a></p>
+<h4 id="再说两句"><a href="#再说两句" class="headerlink" title="再说两句"></a>再说两句</h4><p>如果你想搭建想我一样酷炫的Blog请点击这里—&gt;<a href="http://ookamiantd.top/2017/build-blog-hexo-base/" target="_blank" rel="external">传送门</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;em&gt;做人没有梦想，跟咸鱼有什么区别&lt;/em&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/firstBlog.png&quot; alt=&quot;Paste_Image.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="about me" scheme="http://yoursite.com/tags/about-me/"/>
+    
+  </entry>
+  
+</feed>
