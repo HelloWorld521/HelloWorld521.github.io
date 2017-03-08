@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-03T10:07:38.086Z</updated>
+  <updated>2017-03-08T15:39:49.506Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,55 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JAVA随机生成验证码（一）</title>
+    <link href="http://yoursite.com/2017/03/08/JAVA%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/03/08/JAVA随机生成验证码（一）/</id>
+    <published>2017-03-08T15:26:09.000Z</published>
+    <updated>2017-03-08T15:39:49.506Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong><font color="green">图片验证码原理：</font></strong> 服务器生成包含随机字符的字符串图片发给客户端，客户端提交数据需要填写字符串作为验证。而字符串保存在图片中，机器难以识别，达到防止有人利用程序恶意发送信息的目的。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/4988302-c064a5895599aa1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
+<h5 id="JAVA随机生成图片"><a href="#JAVA随机生成图片" class="headerlink" title="JAVA随机生成图片"></a>JAVA随机生成图片</h5><p>JAVA随机生成图片步骤如下：</p>
+<ol>
+<li><p>创建图片缓存区     传参为宽高和图片类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BufferedImage bi = new</div><div class="line">BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取画笔并绘画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Graphics g = bi.getGraphics();  //获取画笔</div><div class="line">g.setFont(new Font(Font.SANS_SERIF,Font.BOLD,16));//设置字体</div><div class="line">g.setColor(color);//设置画笔颜色</div><div class="line">g.fillRect(0, 0, width, height);   //绘制背景</div></pre></td></tr></table></figure>
+</li>
+<li><p>输出图片</p>
+<pre><code>ImageIO.write(bi, &quot;JPG&quot;, resp.getOutputStream());
+</code></pre></li>
+</ol>
+<h5 id="JAVA实现验证码实例"><a href="#JAVA实现验证码实例" class="headerlink" title="JAVA实现验证码实例"></a>JAVA实现验证码实例</h5><h6 id="servlet生成验证码图片源码"><a href="#servlet生成验证码图片源码" class="headerlink" title="servlet生成验证码图片源码"></a>servlet生成验证码图片源码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line">package com.javaweb.respones;</div><div class="line"></div><div class="line">import java.awt.Color;</div><div class="line">import java.awt.Font;</div><div class="line">import java.awt.Graphics;</div><div class="line">import java.awt.image.BufferedImage;</div><div class="line">import java.io.IOException;</div><div class="line">import java.util.Random;</div><div class="line"></div><div class="line">import javax.imageio.ImageIO;</div><div class="line">import javax.servlet.ServletException;</div><div class="line">import javax.servlet.http.HttpServlet;</div><div class="line">import javax.servlet.http.HttpServletRequest;</div><div class="line">import javax.servlet.http.HttpServletResponse;</div><div class="line"></div><div class="line">public class IdentityServlet extends HttpServlet&#123;</div><div class="line"></div><div class="line">//	设置字符</div><div class="line">	public static final char[] chars=&quot;1234567890QWERTYUIOPASDFGHJKLZXCVBNM&quot;.toCharArray();</div><div class="line"></div><div class="line">//	设置随机数</div><div class="line">	public static Random random = new Random();</div><div class="line"></div><div class="line">//	获取4位随机数</div><div class="line">	public static String getRandomString()&#123;</div><div class="line">		StringBuffer buffer = new StringBuffer();</div><div class="line">		int index;   //获取随机chars下标</div><div class="line">		for(int i=0;i&lt;4;i++)&#123;</div><div class="line">			index = random.nextInt(chars.length);  //获取随机chars下标</div><div class="line">			buffer.append(chars[index]);</div><div class="line">		&#125;</div><div class="line">		return buffer.toString();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">//	获取随机颜色</div><div class="line">	public static Color getRandomColor()&#123;</div><div class="line">		return new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">//	返回某颜色的反色</div><div class="line">	public static Color getReverseColor(Color c)&#123;</div><div class="line">//		防止反色和原色相近</div><div class="line">		if(c.getRed()&lt;130&amp;&amp;c.getRed()&gt;125 &amp;&amp; c.getBlue()&lt;130&amp;&amp; c.getBlue()&gt;125 &amp;&amp;</div><div class="line">				c.getGreen()&lt;130&amp;&amp;c.getGreen()&gt;125)&#123;</div><div class="line">			return new Color(255,255,255);</div><div class="line">		&#125;else&#123;</div><div class="line">			return new Color(255-c.getRed(),255-c.getGreen(),255-c.getBlue());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@Override</div><div class="line">	protected void doGet(HttpServletRequest req, HttpServletResponse resp)</div><div class="line">			throws ServletException, IOException &#123;</div><div class="line"></div><div class="line">		String code = getRandomString();  //获取随机验证码</div><div class="line">		req.getSession().setAttribute(&quot;code&quot;, code); //放入Session</div><div class="line"></div><div class="line">		int width = 100;    //图片宽度</div><div class="line">		int height = 30;  	//图片高度</div><div class="line"></div><div class="line">		Color color = 	getRandomColor();  //随机色，用于背景色</div><div class="line">		Color reverse = getReverseColor(color);  //反色，用于前景色</div><div class="line"></div><div class="line"></div><div class="line">		/**</div><div class="line">		 * 生成带字符串的文本图片</div><div class="line">		 */</div><div class="line">//		1.创建图片缓存区     传参为宽高和图片类型</div><div class="line">		BufferedImage bi = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);</div><div class="line">//		2.获取画笔并绘画</div><div class="line">		Graphics g = bi.getGraphics();</div><div class="line">		g.setFont(new Font(Font.SANS_SERIF,Font.BOLD,16));//设置字体</div><div class="line">		g.setColor(color);//设置画笔颜色</div><div class="line">		g.fillRect(0, 0, width, height);   //绘制背景</div><div class="line">		g.setColor(reverse);   //设置画笔颜色</div><div class="line">		g.drawString(code, 18, 20); //绘制字符</div><div class="line">//		设置最多100个噪音点</div><div class="line">		for(int i=0,n = random.nextInt(100);i&lt;n;i++)&#123;</div><div class="line">			g.drawRect(random.nextInt(width), random.nextInt(height), 1, 1);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">//		3.输出图片</div><div class="line">		ImageIO.write(bi, &quot;JPG&quot;, resp.getOutputStream());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>生成图片验证码主要应用随机数生成器Random生成随机颜色绘制背景，取反色*绘制字符,并绘制最多100随机位置的噪音点，增加识别难度。</p>
+<h6 id="配置XML"><a href="#配置XML" class="headerlink" title="配置XML"></a>配置XML</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;servlet&gt;</div><div class="line">	&lt;servlet-name&gt;IdentityServlet&lt;/servlet-name&gt;</div><div class="line">	&lt;servlet-class&gt;com.javaweb.respones.IdentityServlet&lt;/servlet-class&gt;</div><div class="line">&lt;/servlet&gt;</div><div class="line">&lt;servlet-mapping&gt;</div><div class="line">	&lt;servlet-name&gt;IdentityServlet&lt;/servlet-name&gt;</div><div class="line">	&lt;url-pattern&gt;/servlet/IdentityServlet&lt;/url-pattern&gt;</div><div class="line">&lt;/servlet-mapping&gt;</div></pre></td></tr></table></figure>
+<h6 id="html展示页面"><a href="#html展示页面" class="headerlink" title="html展示页面"></a>html展示页面</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">	function reloadImage()&#123;</div><div class="line">		document.getElementById(&apos;btn&apos;).disable=true;</div><div class="line">		document.getElementById(&apos;identity&apos;).src=&apos;servlet/IdentityServlet?time=&apos;</div><div class="line">		 	+new Date().getTime();		</div><div class="line">	&#125;</div><div class="line">	&lt;/script&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line"></div><div class="line">  &lt;body&gt;</div><div class="line">  	&lt;img src = &quot;servlet/IdentityServlet&quot; id=&quot;identity&quot; onload=&quot;btn.disabled= false;&quot;&gt;</div><div class="line">  	&lt;input type=&quot;button&quot; value=&quot;换个图片&quot; onclick=&quot;reloadImage()&quot; id=&quot;btn&quot;&gt;</div><div class="line">  &lt;/body&gt;</div></pre></td></tr></table></figure>
+<h6 id="截图展示"><a href="#截图展示" class="headerlink" title="截图展示"></a>截图展示</h6><p><img src="http://upload-images.jianshu.io/upload_images/4988302-21e98def5708e9d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/4988302-295963b3855fa442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/4988302-9a363045f30be011.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>下篇介绍利用组件Jcaptcha和Kaptcha生成验证码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;&lt;font color=&quot;green&quot;&gt;图片验证码原理：&lt;/font&gt;&lt;/strong&gt; 服务器生成包含随机字符的字符串图片发给客户端，客户端提交数据需要填写字符串作为验证。而字符串保存在图片中，机器难以识别，达到防止有人利用程序恶意发送信息的目的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4988302-c064a5895599aa1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java实例" scheme="http://yoursite.com/categories/Java%E5%AE%9E%E4%BE%8B/"/>
+    
+    
+      <category term="javaweb" scheme="http://yoursite.com/tags/javaweb/"/>
+    
+  </entry>
+  
+  <entry>
     <title>现代浏览器之争</title>
     <link href="http://yoursite.com/2017/03/03/%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B9%8B%E4%BA%89/"/>
     <id>http://yoursite.com/2017/03/03/现代浏览器之争/</id>
     <published>2017-03-03T10:04:49.000Z</published>
-    <updated>2017-03-03T10:07:38.086Z</updated>
+    <updated>2017-03-08T15:29:01.849Z</updated>
     
     <content type="html"><![CDATA[<p>今天学习javaweb，发现一件很有趣的事情……</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4988302-2f8c118e1dfe1b54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
@@ -58,10 +102,10 @@
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+      <category term="冷知识" scheme="http://yoursite.com/categories/%E5%86%B7%E7%9F%A5%E8%AF%86/"/>
     
     
-      <category term="杂记" scheme="http://yoursite.com/tags/%E6%9D%82%E8%AE%B0/"/>
+      <category term="-浏览器" scheme="http://yoursite.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
   </entry>
   
