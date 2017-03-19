@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-08T15:39:49.506Z</updated>
+  <updated>2017-03-19T15:05:07.156Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>java网络爬虫项目</title>
+    <link href="http://yoursite.com/2017/03/19/java%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2017/03/19/java网络爬虫项目/</id>
+    <published>2017-03-19T14:02:19.000Z</published>
+    <updated>2017-03-19T15:05:07.156Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>talk is cheap, show me the code;</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/4988302-d58683605cb9efd4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="spider.jpg"></p>
+<a id="more"></a>
+<h3 id="什么是网络爬虫？"><a href="#什么是网络爬虫？" class="headerlink" title="什么是网络爬虫？"></a>什么是网络爬虫？</h3><h4 id="维基百科"><a href="#维基百科" class="headerlink" title="维基百科"></a>维基百科</h4><blockquote>
+<p><strong><a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E8%B7%AF%E7%88%AC%E8%9F%B2" target="_blank" rel="external">网络爬虫</a></strong>（英语：<strong>web crawler</strong>），也叫网络蜘蛛（spider），是一种用来自动浏览万维网的网络机器人。其目的一般为编纂网络索引。</p>
+</blockquote>
+<h4 id="百度百科"><a href="#百度百科" class="headerlink" title="百度百科"></a>百度百科</h4><blockquote>
+<p><strong>网络爬虫</strong>（又被称为网页蜘蛛，网络机器人，在FOAF社区中间，更经常的称为网页追逐者），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
+</blockquote>
+<h3 id="java网络爬虫练习项目"><a href="#java网络爬虫练习项目" class="headerlink" title="java网络爬虫练习项目"></a>java网络爬虫练习项目</h3><p>一个比较简单的java练习项目。</p>
+<h4 id="需要知识"><a href="#需要知识" class="headerlink" title="需要知识"></a>需要知识</h4><ul>
+<li>什么是网络爬虫</li>
+<li>Java基础</li>
+<li>正则表达式</li>
+</ul>
+<h4 id="项目思路"><a href="#项目思路" class="headerlink" title="项目思路"></a>项目思路</h4><p>在<a href="http://www.imooc.com/wenda" target="_blank" rel="external">慕课网</a>的猿问页面，寻找一个你喜欢的问题页面，利用http请求获取问题页面的源码，然后通过正则表达式，不断爬取相关问题页面。</p>
+<h4 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h4><p>该项目存在三个类<br><code>Imooc.java :</code> <code>imooc问题bean类</code><br><code>Spider.java:</code> <code>封装用来爬取页面的方法类</code><br><code>Main.java:</code> <code>运行起始页面</code></p>
+<ul>
+<li>Imooc.java类是要爬取内容的对象类，属性成员有问题，问题链接，问题描述，答案列表和下一个问题链接。</li>
+<li>Spider.java类封装了2个可能用到的方法，getSource方法获取网页源代码和getImoocPage获取页面Url列表。</li>
+</ul>
+<h4 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h4><p>IMOOCSpider项目已上传到我的github上—-<a href="https://github.com/HelloWorld521/Java.git" target="_blank" rel="external">传送门</a><br>欢迎Star</p>
+<p>下载下来后导入eclipse即可运行。</p>
+<h4 id="项目运行结果"><a href="#项目运行结果" class="headerlink" title="项目运行结果"></a>项目运行结果</h4><p><img src="http://upload-images.jianshu.io/upload_images/4988302-cbcfa93400ac8dad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<h3 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h3><p><a href="http://codingxiaxw.cn/2016/10/20/20-%E7%94%A8Java%E5%86%99%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E4%B8%80%E4%B9%8B%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" target="_blank" rel="external">java爬取知乎问题</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;talk is cheap, show me the code;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4988302-d58683605cb9efd4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;spider.jpg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java实例" scheme="http://yoursite.com/categories/Java%E5%AE%9E%E4%BE%8B/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JAVA随机生成验证码（一）</title>
     <link href="http://yoursite.com/2017/03/08/JAVA%E9%9A%8F%E6%9C%BA%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/03/08/JAVA随机生成验证码（一）/</id>
     <published>2017-03-08T15:26:09.000Z</published>
-    <updated>2017-03-08T15:39:49.506Z</updated>
+    <updated>2017-03-19T14:08:57.172Z</updated>
     
     <content type="html"><![CDATA[<p><strong><font color="green">图片验证码原理：</font></strong> 服务器生成包含随机字符的字符串图片发给客户端，客户端提交数据需要填写字符串作为验证。而字符串保存在图片中，机器难以识别，达到防止有人利用程序恶意发送信息的目的。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4988302-c064a5895599aa1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -55,7 +107,7 @@
       <category term="Java实例" scheme="http://yoursite.com/categories/Java%E5%AE%9E%E4%BE%8B/"/>
     
     
-      <category term="javaweb" scheme="http://yoursite.com/tags/javaweb/"/>
+      <category term="Javaweb" scheme="http://yoursite.com/tags/Javaweb/"/>
     
   </entry>
   
