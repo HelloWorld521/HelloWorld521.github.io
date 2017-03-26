@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="-浏览器," />
+  <meta name="keywords" content="Spring," />
 
 
 
@@ -89,24 +89,34 @@
 
 
 
-<meta name="description" content="今天学习javaweb，发现一件很有趣的事情……">
+<meta name="description" content="专题一 IOC
+接口及面向接口编程
+什么是 IOC（控制反转）：控制权转移，应用程序本身不负责
+Spring的 Bean 配置
+Bean 的初始化
+Spring 的常用注入方式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="现代浏览器之争">
-<meta property="og:url" content="http://yoursite.com/2017/03/03/现代浏览器之争/index.html">
+<meta property="og:title" content="专题一：IOC ---- Spring入门笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/27/Spring入门/index.html">
 <meta property="og:site_name" content="codinghjy's blog">
-<meta property="og:description" content="今天学习javaweb，发现一件很有趣的事情……">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4988302-2f8c118e1dfe1b54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4988302-c376adf39a48dec2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4988302-b67c9f1be64c4898.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4988302-d16a4adde6a161b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4988302-05968a8af7dc8fa8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4988302-d42e6ca2d988b887.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4988302-68f4e02946d38fa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-08T15:29:01.849Z">
+<meta property="og:description" content="专题一 IOC
+接口及面向接口编程
+什么是 IOC（控制反转）：控制权转移，应用程序本身不负责
+Spring的 Bean 配置
+Bean 的初始化
+Spring 的常用注入方式">
+<meta property="og:image" content="http://yoursite.com/images/ioc.png">
+<meta property="og:image" content="http://yoursite.com/images/web.png">
+<meta property="og:updated_time" content="2017-03-26T18:21:25.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="现代浏览器之争">
-<meta name="twitter:description" content="今天学习javaweb，发现一件很有趣的事情……">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4988302-2f8c118e1dfe1b54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="专题一：IOC ---- Spring入门笔记">
+<meta name="twitter:description" content="专题一 IOC
+接口及面向接口编程
+什么是 IOC（控制反转）：控制权转移，应用程序本身不负责
+Spring的 Bean 配置
+Bean 的初始化
+Spring 的常用注入方式">
+<meta name="twitter:image" content="http://yoursite.com/images/ioc.png">
 
 
 
@@ -134,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/03/现代浏览器之争/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/27/Spring入门/"/>
 
 
 
 
 
-  <title> 现代浏览器之争 | codinghjy's blog </title>
+  <title> 专题一：IOC ---- Spring入门笔记 | codinghjy's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -334,7 +344,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/03/现代浏览器之争/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/Spring入门/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="codinghjy">
@@ -358,7 +368,7 @@
             
             
               
-                现代浏览器之争
+                专题一：IOC ---- Spring入门笔记
               
             
           </h1>
@@ -373,8 +383,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-03T18:04:49+08:00">
-                2017-03-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T01:35:53+08:00">
+                2017-03-27
               </time>
             
 
@@ -396,8 +406,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/冷知识/" itemprop="url" rel="index">
-                    <span itemprop="name">冷知识</span>
+                  <a href="/categories/Spring学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring学习笔记</span>
                   </a>
                 </span>
 
@@ -414,7 +424,7 @@
 
           
           
-             <span id="/2017/03/03/现代浏览器之争/" class="leancloud_visitors" data-flag-title="现代浏览器之争">
+             <span id="/2017/03/27/Spring入门/" class="leancloud_visitors" data-flag-title="专题一：IOC ---- Spring入门笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -443,33 +453,65 @@
       
 
       
-        <p>今天学习javaweb，发现一件很有趣的事情……</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4988302-2f8c118e1dfe1b54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+        <h2 id="专题一-IOC"><a href="#专题一-IOC" class="headerlink" title="专题一 IOC"></a>专题一 IOC</h2><ol>
+<li>接口及面向接口编程</li>
+<li>什么是 IOC（控制反转）：控制权转移，应用程序本身不负责</li>
+<li>Spring的 Bean 配置</li>
+<li>Bean 的初始化</li>
+<li>Spring 的常用注入方式</li>
+</ol>
 <a id="more"></a>
-<p>用浏览器访问servlet项目，当代码执行到这地方时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *</div><div class="line"> * 返回客户端浏览器信息</div><div class="line"> */</div><div class="line">private String getNavigator(String userAgent)&#123;</div><div class="line">	if(userAgent.indexOf(&quot;TencentTraveler&quot;) &gt; 0)</div><div class="line">		return &quot;腾讯浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;Safari&quot;)&gt;0)</div><div class="line">		return &quot;Safari浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;Chrome&quot;)&gt;0)</div><div class="line">		return &quot;Chrome浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;Firefox&quot;)&gt;0)</div><div class="line">		return &quot;Firxfox浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;MSIE&quot;)&gt;0)</div><div class="line">		return &quot;IE浏览器&quot;;</div><div class="line">	return &quot;未知浏览器&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用谷歌浏览器访问，居然辨识出错</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4988302-c376adf39a48dec2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>打开调试器，发现谷歌的userAgent竟然有这么多的浏览器标识,这是什么情况！！！<br>谷歌在伪装别人么…</p>
-<p>查阅各方资料，终于找到答案：</p>
-<h4 id="为什么所有浏览器的userAgent都带Mozilla"><a href="#为什么所有浏览器的userAgent都带Mozilla" class="headerlink" title="为什么所有浏览器的userAgent都带Mozilla"></a><a href="http://www.eamonning.com/blog/view/289" target="_blank" rel="external">为什么所有浏览器的userAgent都带Mozilla</a></h4><p>　　最早的时候有一个浏览器叫NCSA Mosaic，把自己标称为NCSA_Mosaic/2.0 (Windows 3.1)，它支持文字显示的同时还支持图片，于是Web开始好玩起来。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4988302-b67c9f1be64c4898.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>　　然后出现了一个新的网页浏览器，“Mozilla”，其实就是“Mosaic终结者”的意思，这搞的Mosaic很不爽，（毕竟Mosaic出道早，江湖老），新浏览器最后正式公布的名称是Netscape，它把自己标称为Mozilla/1.0 (Win3.1)，更好玩了。Netscape支持框架显示，后来框架在大家中间流行起来了，但Mosaic不支持框架啊，于是伟大的“用户代-理人探测”技术出现了，如果是“Mozilla”，那就发给支持框架的页面，至于其他的浏览器，则发给不含框架的页面。</p>
-<p>　　Netscape想逗Microsoft玩儿，把Windows叫做“几乎不曾做过调试的设备驱动器”，后者很恼火。Microsoft于是推出了自己的 网页浏览器，叫做Internet Explorer，希望它能成为“Netscape终结者”。Internet Explorer也支持框架，但它不是Mozilla啊，所以没人给它发送带有框架的页面。Microsoft慢慢烦躁起来，不再寄希望于网站管理员逐渐 认识IE并给它发框架，而是宣称自己是“兼容Mozilla”的，开始模仿Netscape，把自己标称为Mozilla/1.22 (compatible; MSIE 2.0; Windows 95)，这样Internet Explorer也能收到框架了，整个Microsoft狂喜，但网站管理员开始有点被搞糊涂了。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4988302-d16a4adde6a161b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>　　Microsoft把IE和Windows一起卖，并且把产品也弄得比Netscape更好了，拉开了第一场浏览器之战。结果和大家知道的一样，Netscape被干掉了，Microsoft大胜、大喜。但是后来Netscape以Mozilla的新名称重生了，构造了Gecko，标称其为Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.1) Gecko/20020826，Gecko属于渲染引擎，表现优异。Mozilla开发了Firefox，标称为Mozilla/5.0 (Windows; U; Windows NT 5.1; sv-SE; rv:1.7.5) Gecko/20041108 Firefox/1.0，并且Firefox表现也非常优秀。Gecko扩张迅速，一些浏览器使用了它的代码并标称为Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; en-US; rv:1.7.2) Gecko/20040825 Camino/0.8.1 ，这是一个，还有Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.8.1.8) Gecko/20071008 SeaMonkey/1.0，另一个，它们都伪装成Mozilla，同时也都是基于Gecko支持的。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4988302-05968a8af7dc8fa8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>　　Gecko表现优秀，IE则很差劲，于是身份甄别再次发生，输送给Gecko的是设计良好的网页代码，其他浏览器就没有这个待遇了。Linux的跟随者很伤心，因为他们创建了基于KHTML引擎支持的Konqueror，但却不会被输送好代码，虽然他们自己认为KHTML和Gecko一样优秀，于是Konquerer开始伪装自己“像Gecko”那样以得到好的网页，并标称自己为Mozilla/5.0 (compatible; Konqueror/3.2; FreeBSD) (KHTML, like Gecko)，这个世界更让人困惑了。</p>
-<p>　　后来出现了Opera这样的主儿，宣称“允许用户自己决定让浏览器装成谁”，它的菜单中提供了Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 9.51， Mozilla/5.0 (Windows NT 6.0; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.51，Opera/9.51 (Windows NT 5.1; U; en) 供大家来选择，选谁是谁。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4988302-d42e6ca2d988b887.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>　　Apple开发了Safari，使用了KHTML，同时也增加了很多新特性，后来干脆一锅煮，另起炉灶叫了WebKit，但是它有希望能够得到那些为KHTML编写的网页，于是Safari标称自己为Mozilla/5.0 (Macintosh; U; PPC Mac OS X; de-de) AppleWebKit/85.7 (KHTML, like Gecko) Safari/85.5，这个世界更混乱了。</p>
-<p>　　Microsoft越来越担心Firefox的发展，重新启动了Internet Explorer的开发，标称自己为Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0) ，可以很好的渲染代码，但那要看网站管理员是否指示它这么做。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/4988302-68f4e02946d38fa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>　　Google也开发了自己的浏览器Chrome， 使用了Webkit，有点像Safari，希望能得到为Safari编写的网页，于是决定装成Safari。这样啊，Chrome使用了WebKit渲染 引擎，想装成Safari，而WebKit呢又伪装自己是KHTML，KHTML呢又是伪装成Gecko的，同时所有的浏览器又都宣称自己是 Mozilla，于是，Chrome宣称自己是Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13,，UserAgent字符串彻底混乱了，也几乎不再发挥任何作用，每个人都宣称自己是别人，混乱充斥人间啊。</p>
-<p>　　有点调侃的味道，可以总结为一句话：Mozilla是Netscape的吉祥物，也是Netscape Navigator浏览器使用的内部开发代号。由于Netscape早期的影响力，直到今天，所有浏览器包括IE，向Web服务器报告自己的浏览器标识的 时候，都以 “Mozilla”开头，表明自己是Mozilla兼容的。这，就是原因啦。</p>
-<p>　　查看浏览器标记的方法也很容易，通过JavaScript语句：</p>
-<p>　　javascript:alert(navigator.userAgent)</p>
-<p>　　在地址栏输入以上代码，然后回车。</p>
-<p>答案内容转载：<br> <a href="http://www.eamonning.com/blog/view/289" target="_blank" rel="external">http://www.eamonning.com/blog/view/289</a></p>
+<h3 id="接口及面向接口编程"><a href="#接口及面向接口编程" class="headerlink" title="接口及面向接口编程"></a>接口及面向接口编程</h3><h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ul>
+<li>接口即声明，声明哪些方法对外提供。</li>
+<li>使用接口沟通，使其能被修改内部而不影响外部其他实体的与其交互的方式（Java8中接口可以拥有方法体）</li>
+</ul>
+<h4 id="面向接口编程"><a href="#面向接口编程" class="headerlink" title="面向接口编程"></a>面向接口编程</h4><ul>
+<li>结构设计中，分清层次及调用关系，每层只向外（上层）提供一组功能的接口，各层仅依赖接口而非实现类</li>
+<li>接口内部的实现变动不影响各层之间的调用，这一点在公共服务中尤为重要</li>
+<li>“面向接口编程”中的“接口”是用于【隐藏具体的实现】和【实现多态性的组件】（2点）</li>
+</ul>
+<h3 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h3><ul>
+<li>IOC：控制反转，控制权的转移，应用程序本身不负责依赖对象的创建和维护，而是由外部容器负责创建和维护</li>
+<li>DI（依赖注入）是其一种实现方式。（获取依赖对象的过程被反转，过程由自身管理变为有 IOC 容器主动注入，即依赖注入）</li>
+<li>目的：创建对象并且组装对象之间的关系</li>
+</ul>
+<p>下图为 Spring 官网给出的 IOC 说明<br><img src="/images/ioc.png" alt="IOC说明"></p>
+<h3 id="Spring-的-Bean-配置"><a href="#Spring-的-Bean-配置" class="headerlink" title="Spring 的 Bean 配置"></a>Spring 的 Bean 配置</h3><p>配置一般存放于 spring-ioc.xml 文件中<br>举例<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">  <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">  http://www.springframework.org/schema/beans/spring-beans.xsd" &gt;</div><div class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"oneInterface"</span> <span class="attr">class</span>=<span class="string">"com.imooc.ioc.interfaces.OneInterfaceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="Bean-容器的初始化"><a href="#Bean-容器的初始化" class="headerlink" title="Bean 容器的初始化"></a>Bean 容器的初始化</h3><ul>
+<li>基础：两个包<ul>
+<li>org.springframework.beans</li>
+<li>org.springframework.context</li>
+<li>BeanFactory 提供配置结构和基本功能，加载并初始化Bean</li>
+<li>ApplicationContext 保存了 Bean 对象并在 Spring 中广泛使用</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>3中初始化方式：ApplicationContext</p>
+<ul>
+<li><p>本地文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FileSystemXmlApplicationContext context = <span class="keyword">new</span></div><div class="line">FileSystemXmlApplicationContext(<span class="string">"F:/workspace/appcontext.xml"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>Classpath</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ClassPathXmlApplicationContext context = <span class="keyword">new</span></div><div class="line">ClassPathXmlApplicationContext(<span class="string">"classpath:spring-context.xml"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>Web 应用中依赖 servlet 或 Listener<br><img src="/images/web.png" alt="Web初始化"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spring-注入"><a href="#Spring-注入" class="headerlink" title="Spring 注入"></a>Spring 注入</h3><ul>
+<li>Spring 注入指在启动Spring容器加载bean配置的时候，完成对变量的赋值行为</li>
+<li>常用的两种注入方式<ul>
+<li>设值注入</li>
+<li>构造注入  </li>
+</ul>
+</li>
+</ul>
+<h4 id="设值注入"><a href="#设值注入" class="headerlink" title="设值注入"></a>设值注入</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">  <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">  http://www.springframework.org/schema/beans/spring-beans.xsd" &gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"injectionService"</span> <span class="attr">class</span>=<span class="string">"com.imooc.ioc.injection.service.InjectionServiceImpl"</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"injectionDAO"</span> <span class="attr">ref</span>=<span class="string">"injectionDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"injectionDAO"</span> <span class="attr">class</span>=<span class="string">"com.imooc.ioc.injection.dao.InjectionDAOImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>注意：需要在 Service 文件中添加 setInjectionDAO 方法。property 中 name 对应 set*</p>
+<h4 id="构造注入"><a href="#构造注入" class="headerlink" title="构造注入"></a>构造注入</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">  <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">  http://www.springframework.org/schema/beans/spring-beans.xsd" &gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"injectionService"</span> <span class="attr">class</span>=<span class="string">"com.imooc.ioc.injection.service.InjectionServiceImpl"</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"injectionDAO"</span> <span class="attr">ref</span>=<span class="string">"injectionDAO"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"injectionDAO"</span> <span class="attr">class</span>=<span class="string">"com.imooc.ioc.injection.dao.InjectionDAOImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>注意：需要在 Service 文件中添加构造方法。name 对应 service 中构造器参数名</p>
 
       
     </div>
@@ -487,7 +529,7 @@
  
    <div class="">
    <p><span>
-   <b>本文地址：</b><a href="/2017/03/03/现代浏览器之争/" title="现代浏览器之争">http://yoursite.com/2017/03/03/现代浏览器之争/</a><br/><b>转载请注明出处，谢谢！</b>
+   <b>本文地址：</b><a href="/2017/03/27/Spring入门/" title="专题一：IOC ---- Spring入门笔记">http://yoursite.com/2017/03/27/Spring入门/</a><br/><b>转载请注明出处，谢谢！</b>
    </span></p>
    </div>
  
@@ -502,7 +544,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/浏览器/" rel="tag"># -浏览器</a>
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
           
         </div>
       
@@ -515,8 +557,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/第一篇博客/" rel="next" title="第一篇博客">
-                <i class="fa fa-chevron-left"></i> 第一篇博客
+              <a href="/2017/03/26/Java练习项目分享/" rel="next" title="Java练习项目分享">
+                <i class="fa fa-chevron-left"></i> Java练习项目分享
               </a>
             
           </div>
@@ -524,10 +566,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/08/JAVA随机生成验证码（一）/" rel="prev" title="JAVA随机生成验证码（一）">
-                JAVA随机生成验证码（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -679,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么所有浏览器的userAgent都带Mozilla"><span class="nav-number">1.</span> <span class="nav-text">为什么所有浏览器的userAgent都带Mozilla</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#专题一-IOC"><span class="nav-number">1.</span> <span class="nav-text">专题一 IOC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口及面向接口编程"><span class="nav-number">1.1.</span> <span class="nav-text">接口及面向接口编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">1.1.1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向接口编程"><span class="nav-number">1.1.2.</span> <span class="nav-text">面向接口编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是IOC"><span class="nav-number">1.2.</span> <span class="nav-text">什么是IOC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-的-Bean-配置"><span class="nav-number">1.3.</span> <span class="nav-text">Spring 的 Bean 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean-容器的初始化"><span class="nav-number">1.4.</span> <span class="nav-text">Bean 容器的初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-注入"><span class="nav-number">1.5.</span> <span class="nav-text">Spring 注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设值注入"><span class="nav-number">1.5.1.</span> <span class="nav-text">设值注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造注入"><span class="nav-number">1.5.2.</span> <span class="nav-text">构造注入</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
