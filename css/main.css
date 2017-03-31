@@ -1726,7 +1726,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #651ae7;
+  background: #9a092e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2577,4 +2577,8 @@ embed {
 }
 .main .sidebar-toggle {
   width: 17px;
+}
+pre .keyword,
+pre .javascript .function {
+  color: #d05;
 }
