@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-31T13:00:54.913Z</updated>
+  <updated>2017-03-31T13:05:05.281Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://yoursite.com/2017/03/31/AJAX/"/>
     <id>http://yoursite.com/2017/03/31/AJAX/</id>
     <published>2017-03-31T12:12:18.000Z</published>
-    <updated>2017-03-31T13:00:54.913Z</updated>
+    <updated>2017-03-31T13:05:05.281Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直以来，使用 JQuery 来实现 AJAX 请求，感觉有必要了解一下原生 JS 实现方式。</p>
+<a id="more"></a>
 <h2 id="AJAX介绍"><a href="#AJAX介绍" class="headerlink" title="AJAX介绍"></a>AJAX介绍</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
 <p>AJAX即“Asynchronous JavaScript and XML”（异步的JavaScript与XML技术），指的是一套综合了多项技术的浏览器端网页开发技术。</p>
 </blockquote>
@@ -56,7 +57,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;一直以来，使用 JQuery 来实现 AJAX 请求，感觉有必要了解一下原生 JS 实现方式。&lt;/p&gt;
-&lt;h2 id=&quot;AJAX介绍&quot;&gt;&lt;a
     
     </summary>
     
