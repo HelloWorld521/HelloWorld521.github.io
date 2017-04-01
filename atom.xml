@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-01T01:23:30.668Z</updated>
+  <updated>2017-04-01T01:27:39.055Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/31/AJAX/"/>
     <id>http://yoursite.com/2017/03/31/AJAX/</id>
     <published>2017-03-31T12:12:18.000Z</published>
-    <updated>2017-04-01T01:23:30.668Z</updated>
+    <updated>2017-04-01T01:27:39.055Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直以来，使用 JQuery 来实现 AJAX 请求，感觉有必要了解一下原生 JS 实现方式。</p>
 <a id="more"></a>
@@ -44,7 +44,7 @@
 <li>自己动手开发搜索框智能提示的功能  </li>
 </ol>
 <p>值得关注的点：原生 js 获取 xmlHttp 对象，前后台交互方法</p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>搜索框，模糊搜索等<br><img src="/images/ajax_pro.png" alt="应用场景图片"></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>搜索框，模糊搜索等<br><img src="/images/ajax_search.png" alt="应用场景图片"></p>
 <h3 id="理论分析"><a href="#理论分析" class="headerlink" title="理论分析"></a>理论分析</h3><pre><code>1. 在搜索框输入关键字
 2. 浏览器将关键字【异步】发送给服务器
 3. 服务器经过处理。将相应数据以 Json 格式返回客户端
