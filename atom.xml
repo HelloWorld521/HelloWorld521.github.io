@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-18T10:24:24.515Z</updated>
+  <updated>2017-04-18T10:35:02.619Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Spring 中引入单元测试</title>
+    <link href="http://yoursite.com/2017/04/18/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    <id>http://yoursite.com/2017/04/18/单元测试/</id>
+    <published>2017-04-18T10:31:47.000Z</published>
+    <updated>2017-04-18T10:35:02.619Z</updated>
+    
+    <content type="html"><![CDATA[<p>Spring 中引入单元测试<br>操作步骤</p>
+<ol>
+<li>下载 junit-*.jar 并引入项目中。</li>
+<li>创建 UnitTestBase 类，完成对 Spring 配置文件的加载、销毁</li>
+<li>所有的单元测试类都继承 UnitTestBase，通过它的 getBean 方法获取想要得到的对象</li>
+<li>子类（具体执行单元测试的类）加注解：@RunWith(BlockJUnit4ClassRunner.class)</li>
+<li>单元测试方法加注解：@Test</li>
+<li>右键执行</li>
+</ol>
+<a id="more"></a>
+<p>UnitTestBase 类（加载 spring.xml 配置文件）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.imooc.test.base;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.After;</div><div class="line"><span class="keyword">import</span> org.junit.Before;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</div><div class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"><span class="keyword">import</span> org.springframework.util.StringUtils;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnitTestBase</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ClassPathXmlApplicationContext context;</div><div class="line"></div><div class="line"><span class="comment">//    springxml的路径</span></div><div class="line">    <span class="keyword">private</span> String springXmlpath;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UnitTestBase</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">//    构造器传入路径，子类构造器传入具体路径</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UnitTestBase</span><span class="params">(String springXmlpath)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.springXmlpath = springXmlpath;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">//    执行顺序 @Before -- @Test -- @After</span></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="comment">//        判空处理</span></div><div class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(springXmlpath)) &#123;</div><div class="line">            springXmlpath = <span class="string">"classpath*:spring-*.xml"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line"><span class="comment">//            上下文，Spring的容器</span></div><div class="line"><span class="comment">//            查找配置文件中的配置信息，加载信息到context中，获取信息时使用context.getBean(String id)方法获取相应对象</span></div><div class="line">            context = <span class="keyword">new</span> ClassPathXmlApplicationContext(springXmlpath.split(<span class="string">"[,\\s]+"</span>));</div><div class="line">            context.start();</div><div class="line">        &#125; <span class="keyword">catch</span> (BeansException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@After</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> </span>&#123;</div><div class="line">        context.destroy();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">//    context的bean方法</span></div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">    <span class="keyword">protected</span> &lt;T extends Object&gt; <span class="function">T <span class="title">getBean</span><span class="params">(String beanId)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">return</span> (T)context.getBean(beanId);</div><div class="line">        &#125; <span class="keyword">catch</span> (BeansException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> &lt;T extends Object&gt; <span class="function">T <span class="title">getBean</span><span class="params">(Class&lt;T&gt; clazz)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">return</span> context.getBean(clazz);</div><div class="line">        &#125; <span class="keyword">catch</span> (BeansException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<ul>
+<li>springxml为配置文件路径，构造器传入路径，子类构造器传入具体路径</li>
+<li>执行顺序 @Before – @Test – @After</li>
+<li>@Before 中查找并加载配置信息，存放于 Spring 的容器 context 中，使用context.getBean获取相应对象。</li>
+<li>@Test 子类中需要测试的方法</li>
+<li>@After 关闭context</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring 中引入单元测试&lt;br&gt;操作步骤&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载 junit-*.jar 并引入项目中。&lt;/li&gt;
+&lt;li&gt;创建 UnitTestBase 类，完成对 Spring 配置文件的加载、销毁&lt;/li&gt;
+&lt;li&gt;所有的单元测试类都继承 UnitTestBase，通过它的 getBean 方法获取想要得到的对象&lt;/li&gt;
+&lt;li&gt;子类（具体执行单元测试的类）加注解：@RunWith(BlockJUnit4ClassRunner.class)&lt;/li&gt;
+&lt;li&gt;单元测试方法加注解：@Test&lt;/li&gt;
+&lt;li&gt;右键执行&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Spring学习笔记" scheme="http://yoursite.com/categories/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
     <title>专题二：Bean ---- Spring入门笔记</title>
     <link href="http://yoursite.com/2017/04/18/Spring%E5%85%A5%E9%97%A8-1/"/>
     <id>http://yoursite.com/2017/04/18/Spring入门-1/</id>
     <published>2017-04-18T10:18:13.000Z</published>
-    <updated>2017-04-18T10:24:24.515Z</updated>
+    <updated>2017-04-18T10:31:32.749Z</updated>
     
     <content type="html"><![CDATA[<p>专题二 Bean<br>主要内容：</p>
 <ul>
@@ -125,6 +174,10 @@
     
     </summary>
     
+      <category term="Spring学习笔记" scheme="http://yoursite.com/categories/Spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Spring" scheme="http://yoursite.com/tags/Spring/"/>
     
   </entry>
   

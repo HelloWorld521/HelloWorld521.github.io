@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mysql," />
+  <meta name="keywords" content="Spring," />
 
 
 
@@ -89,22 +89,34 @@
 
 
 
-<meta name="description" content="前言最近做毕业设计用到 mysql，但是 mysql 账号密码忘记了…
-mysql修改密码
-以管理员权限打开 cmd ，进入 mysql 安装的 bin 目录">
+<meta name="description" content="Spring 中引入单元测试操作步骤
+
+下载 junit-*.jar 并引入项目中。
+创建 UnitTestBase 类，完成对 Spring 配置文件的加载、销毁
+所有的单元测试类都继承 UnitTestBase，通过它的 getBean 方法获取想要得到的对象
+子类（具体执行单元测试的类）加注解：@RunWith(BlockJUnit4ClassRunner.class)
+单元测试方法加注解：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql修改密码">
-<meta property="og:url" content="http://yoursite.com/2017/04/12/mysql修改密码/index.html">
+<meta property="og:title" content="Spring 中引入单元测试">
+<meta property="og:url" content="http://yoursite.com/2017/04/18/单元测试/index.html">
 <meta property="og:site_name" content="codinghjy's blog">
-<meta property="og:description" content="前言最近做毕业设计用到 mysql，但是 mysql 账号密码忘记了…
-mysql修改密码
-以管理员权限打开 cmd ，进入 mysql 安装的 bin 目录">
-<meta property="og:updated_time" content="2017-04-11T16:20:03.398Z">
+<meta property="og:description" content="Spring 中引入单元测试操作步骤
+
+下载 junit-*.jar 并引入项目中。
+创建 UnitTestBase 类，完成对 Spring 配置文件的加载、销毁
+所有的单元测试类都继承 UnitTestBase，通过它的 getBean 方法获取想要得到的对象
+子类（具体执行单元测试的类）加注解：@RunWith(BlockJUnit4ClassRunner.class)
+单元测试方法加注解：">
+<meta property="og:updated_time" content="2017-04-18T10:35:02.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql修改密码">
-<meta name="twitter:description" content="前言最近做毕业设计用到 mysql，但是 mysql 账号密码忘记了…
-mysql修改密码
-以管理员权限打开 cmd ，进入 mysql 安装的 bin 目录">
+<meta name="twitter:title" content="Spring 中引入单元测试">
+<meta name="twitter:description" content="Spring 中引入单元测试操作步骤
+
+下载 junit-*.jar 并引入项目中。
+创建 UnitTestBase 类，完成对 Spring 配置文件的加载、销毁
+所有的单元测试类都继承 UnitTestBase，通过它的 getBean 方法获取想要得到的对象
+子类（具体执行单元测试的类）加注解：@RunWith(BlockJUnit4ClassRunner.class)
+单元测试方法加注解：">
 
 
 
@@ -132,13 +144,13 @@ mysql修改密码
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/12/mysql修改密码/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/18/单元测试/"/>
 
 
 
 
 
-  <title> mysql修改密码 | codinghjy's blog </title>
+  <title> Spring 中引入单元测试 | codinghjy's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -322,7 +334,7 @@ mysql修改密码
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/12/mysql修改密码/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/18/单元测试/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="codinghjy">
@@ -346,7 +358,7 @@ mysql修改密码
             
             
               
-                mysql修改密码
+                Spring 中引入单元测试
               
             
           </h1>
@@ -361,8 +373,8 @@ mysql修改密码
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T00:11:12+08:00">
-                2017-04-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-18T18:31:47+08:00">
+                2017-04-18
               </time>
             
 
@@ -384,8 +396,8 @@ mysql修改密码
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
+                  <a href="/categories/Spring学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring学习笔记</span>
                   </a>
                 </span>
 
@@ -402,7 +414,7 @@ mysql修改密码
 
           
           
-             <span id="/2017/04/12/mysql修改密码/" class="leancloud_visitors" data-flag-title="mysql修改密码">
+             <span id="/2017/04/18/单元测试/" class="leancloud_visitors" data-flag-title="Spring 中引入单元测试">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,11 +443,25 @@ mysql修改密码
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近做毕业设计用到 mysql，但是 mysql 账号密码忘记了…</p>
-<h2 id="mysql修改密码"><a href="#mysql修改密码" class="headerlink" title="mysql修改密码"></a>mysql修改密码</h2><ol>
-<li>以管理员权限打开 cmd ，进入 mysql 安装的 bin 目录</li>
-<li></li>
+        <p>Spring 中引入单元测试<br>操作步骤</p>
+<ol>
+<li>下载 junit-*.jar 并引入项目中。</li>
+<li>创建 UnitTestBase 类，完成对 Spring 配置文件的加载、销毁</li>
+<li>所有的单元测试类都继承 UnitTestBase，通过它的 getBean 方法获取想要得到的对象</li>
+<li>子类（具体执行单元测试的类）加注解：@RunWith(BlockJUnit4ClassRunner.class)</li>
+<li>单元测试方法加注解：@Test</li>
+<li>右键执行</li>
 </ol>
+<a id="more"></a>
+<p>UnitTestBase 类（加载 spring.xml 配置文件）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.imooc.test.base;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.After;</div><div class="line"><span class="keyword">import</span> org.junit.Before;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</div><div class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"><span class="keyword">import</span> org.springframework.util.StringUtils;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnitTestBase</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ClassPathXmlApplicationContext context;</div><div class="line"></div><div class="line"><span class="comment">//    springxml的路径</span></div><div class="line">    <span class="keyword">private</span> String springXmlpath;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UnitTestBase</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">//    构造器传入路径，子类构造器传入具体路径</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UnitTestBase</span><span class="params">(String springXmlpath)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.springXmlpath = springXmlpath;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">//    执行顺序 @Before -- @Test -- @After</span></div><div class="line">    <span class="meta">@Before</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="comment">//        判空处理</span></div><div class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(springXmlpath)) &#123;</div><div class="line">            springXmlpath = <span class="string">"classpath*:spring-*.xml"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line"><span class="comment">//            上下文，Spring的容器</span></div><div class="line"><span class="comment">//            查找配置文件中的配置信息，加载信息到context中，获取信息时使用context.getBean(String id)方法获取相应对象</span></div><div class="line">            context = <span class="keyword">new</span> ClassPathXmlApplicationContext(springXmlpath.split(<span class="string">"[,\\s]+"</span>));</div><div class="line">            context.start();</div><div class="line">        &#125; <span class="keyword">catch</span> (BeansException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@After</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> </span>&#123;</div><div class="line">        context.destroy();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">//    context的bean方法</span></div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">    <span class="keyword">protected</span> &lt;T extends Object&gt; <span class="function">T <span class="title">getBean</span><span class="params">(String beanId)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">return</span> (T)context.getBean(beanId);</div><div class="line">        &#125; <span class="keyword">catch</span> (BeansException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> &lt;T extends Object&gt; <span class="function">T <span class="title">getBean</span><span class="params">(Class&lt;T&gt; clazz)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">return</span> context.getBean(clazz);</div><div class="line">        &#125; <span class="keyword">catch</span> (BeansException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<ul>
+<li>springxml为配置文件路径，构造器传入路径，子类构造器传入具体路径</li>
+<li>执行顺序 @Before – @Test – @After</li>
+<li>@Before 中查找并加载配置信息，存放于 Spring 的容器 context 中，使用context.getBean获取相应对象。</li>
+<li>@Test 子类中需要测试的方法</li>
+<li>@After 关闭context</li>
+</ul>
 
       
     </div>
@@ -453,7 +479,7 @@ mysql修改密码
  
    <div class="">
    <p><span>
-   <b>本文地址：</b><a href="/2017/04/12/mysql修改密码/" title="mysql修改密码">http://yoursite.com/2017/04/12/mysql修改密码/</a><br/><b>转载请注明出处，谢谢！</b>
+   <b>本文地址：</b><a href="/2017/04/18/单元测试/" title="Spring 中引入单元测试">http://yoursite.com/2017/04/18/单元测试/</a><br/><b>转载请注明出处，谢谢！</b>
    </span></p>
    </div>
  
@@ -468,7 +494,7 @@ mysql修改密码
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
           
         </div>
       
@@ -481,8 +507,8 @@ mysql修改密码
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/31/AJAX/" rel="next" title="原生AJAX实现搜索框智能提示">
-                <i class="fa fa-chevron-left"></i> 原生AJAX实现搜索框智能提示
+              <a href="/2017/04/18/Spring入门-1/" rel="next" title="专题二：Bean ---- Spring入门笔记">
+                <i class="fa fa-chevron-left"></i> 专题二：Bean ---- Spring入门笔记
               </a>
             
           </div>
@@ -490,10 +516,6 @@ mysql修改密码
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/18/Spring入门-1/" rel="prev" title="专题二：Bean ---- Spring入门笔记">
-                专题二：Bean ---- Spring入门笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,17 +564,8 @@ mysql修改密码
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.png"
@@ -637,22 +650,6 @@ mysql修改密码
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql修改密码"><span class="nav-number">2.</span> <span class="nav-text">mysql修改密码</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
