@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -114,7 +114,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -179,8 +179,6 @@
 
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
-        
-    <a href="https://github.com/HelloWorld521"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -436,7 +434,7 @@
         <p>今天学习javaweb，发现一件很有趣的事情……</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4988302-2f8c118e1dfe1b54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <a id="more"></a>
-<p>用浏览器访问servlet项目，当代码执行到这地方时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *</div><div class="line"> * 返回客户端浏览器信息</div><div class="line"> */</div><div class="line">private String getNavigator(String userAgent)&#123;</div><div class="line">	if(userAgent.indexOf(&quot;TencentTraveler&quot;) &gt; 0)</div><div class="line">		return &quot;腾讯浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;Safari&quot;)&gt;0)</div><div class="line">		return &quot;Safari浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;Chrome&quot;)&gt;0)</div><div class="line">		return &quot;Chrome浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;Firefox&quot;)&gt;0)</div><div class="line">		return &quot;Firxfox浏览器&quot;;</div><div class="line">	if(userAgent.indexOf(&quot;MSIE&quot;)&gt;0)</div><div class="line">		return &quot;IE浏览器&quot;;</div><div class="line">	return &quot;未知浏览器&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>用浏览器访问servlet项目，当代码执行到这地方时<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> *</div><div class="line"> * 返回客户端浏览器信息</div><div class="line"> */</div><div class="line"><span class="keyword">private</span> String getNavigator(String userAgent)&#123;</div><div class="line">	<span class="keyword">if</span>(userAgent.indexOf(<span class="string">"TencentTraveler"</span>) &gt; <span class="number">0</span>)</div><div class="line">		<span class="keyword">return</span> <span class="string">"腾讯浏览器"</span>;</div><div class="line">	<span class="keyword">if</span>(userAgent.indexOf(<span class="string">"Safari"</span>)&gt;<span class="number">0</span>)</div><div class="line">		<span class="keyword">return</span> <span class="string">"Safari浏览器"</span>;</div><div class="line">	<span class="keyword">if</span>(userAgent.indexOf(<span class="string">"Chrome"</span>)&gt;<span class="number">0</span>)</div><div class="line">		<span class="keyword">return</span> <span class="string">"Chrome浏览器"</span>;</div><div class="line">	<span class="keyword">if</span>(userAgent.indexOf(<span class="string">"Firefox"</span>)&gt;<span class="number">0</span>)</div><div class="line">		<span class="keyword">return</span> <span class="string">"Firxfox浏览器"</span>;</div><div class="line">	<span class="keyword">if</span>(userAgent.indexOf(<span class="string">"MSIE"</span>)&gt;<span class="number">0</span>)</div><div class="line">		<span class="keyword">return</span> <span class="string">"IE浏览器"</span>;</div><div class="line">	<span class="keyword">return</span> <span class="string">"未知浏览器"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>使用谷歌浏览器访问，居然辨识出错</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4988302-c376adf39a48dec2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <p>打开调试器，发现谷歌的userAgent竟然有这么多的浏览器标识,这是什么情况！！！<br>谷歌在伪装别人么…</p>
@@ -656,7 +654,7 @@
         
         
 
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=436514312&auto=0&height=66"></iframe>
+        
 
 
       </section>
@@ -709,7 +707,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -780,6 +778,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
