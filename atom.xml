@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-21T12:05:44.718Z</updated>
+  <updated>2017-09-21T14:01:58.380Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习第一周(一)</title>
+    <link href="http://yoursite.com/2017/09/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
+    <id>http://yoursite.com/2017/09/21/深度学习第一周/</id>
+    <published>2017-09-21T13:55:19.000Z</published>
+    <updated>2017-09-21T14:01:58.380Z</updated>
+    
+    <content type="html"><![CDATA[<p>Udacity的深度学习9月20号开课了，花了我 4000 大洋，可是要认真做笔记了。  </p>
+<p>刚开始就先让体验了一下 fast-style-transfer 图片风格转换，的确是一件挺好玩的事，在这里就给大家分享一下。<br><img src="https://mmbiz.qpic.cn/mmbiz_png/zPicd3t2YJZ1Qds87OdjO2txYS8YZMYNhoE38epYqIQLRCpumRnwGopqOFgEcHYSYVKE9VrA9Ya3bFoJUWlgpJA/0?wx_fmt=png" alt=""></p>
+<a id="more"></a>
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/zPicd3t2YJZ1Qds87OdjO2txYS8YZMYNh9bv10z5RsI4n8aGib6VBYej7o7RtIYiaKABhSPtsfTia9DoHlWIr62iazQ/0?wx_fmt=jpeg" alt=""><br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/zPicd3t2YJZ1Qds87OdjO2txYS8YZMYNhp4DG2iaMrxicf7GqicJibBoweyLOFQ3S3mC9tIra2d2hhPFqkL9Qbwq6cQ/0?wx_fmt=jpeg" alt=""><br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/zPicd3t2YJZ1Qds87OdjO2txYS8YZMYNhu4sCz7z78wqZrRdLjaNKKCwcm2yrHCya6n6PWicUotZCc1r1vQwVmbA/0?wx_fmt=jpeg" alt=""></p>
+<p>效果确实很抽象。</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ol>
+<li>安装地址：<a href="https://repo.continuum.io/archive/.winzip/" target="_blank" rel="external">Anaconda</a> 选择你喜欢的版本（我的是Anaconda3-4.4 64位）</li>
+<li><p>安装过程就不说了，完成之后打开 Anaconda Prompt 终端，输入<code>conda upgrade --all</code>，更新所有包</p>
+</li>
+<li><p>win 环境需要安装 TensorFlow 0.12.1、Python 3.5、Pillow 3.4.2、scipy 0.18.1 和 numpy 1.11.2</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">conda <span class="keyword">create</span> -n <span class="keyword">style</span>-transfer python=<span class="number">3.5</span></div><div class="line"><span class="keyword">activate</span> <span class="keyword">style</span>-transfer</div><div class="line">pip <span class="keyword">install</span> -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow</div><div class="line">conda <span class="keyword">install</span> scipy pillow</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以上代码意思是创建python3.5的环境，进入此环境，并且在此环境下使用清华源安装tensorflow，使用 conda 安装 scipy和pillow。</p>
+<ol>
+<li><p>下载 fast-style-transfer GitHub 资源库代码</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/lengstrom/fast-style-transfer.git</div></pre></td></tr></table></figure>
+</li>
+<li><p>fast-style-transfer 项目需要自己训练图片风格，然后将图片转换为你训练的风格。这里提供几种训练好的数据集，下载任意一个到fast-style-transfer 项目文件夹下。</p>
+<ul>
+<li><a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/January/588aa800_la-muse/la-muse.ckpt" target="_blank" rel="external">La Muse</a></li>
+<li><a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/January/587d1865_rain-princess/rain-princess.ckpt" target="_blank" rel="external">Rain Princess</a></li>
+<li><a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/January/588aa846_udnie/udnie.ckpt" target="_blank" rel="external">Udnie</a></li>
+<li><a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/January/588aa883_scream/scream.ckpt" target="_blank" rel="external">Scream</a></li>
+<li><a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/January/588aa89d_wave/wave.ckpt" target="_blank" rel="external">Wave</a></li>
+<li><a href="https://d17h27t6h515a5.cloudfront.net/topher/2017/January/588aa8b6_wreck/wreck.ckpt" target="_blank" rel="external">Wreck</a></li>
+</ul>
+</li>
+<li><p>在之前的 style-transfer 的环境下，进入 fast-style-transfer 的文件夹输入</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python evaluate<span class="selector-class">.py</span> --checkpoint ./rain-princess<span class="selector-class">.ckpt</span> --<span class="keyword">in</span>-path &lt;path_to_input_file&gt; --out-path ./output_image.jpg</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>&lt;path_to_input_file&gt;</code> 为要转换图片的位置，<code>./rain-princess.ckpt</code> 为训练的数据集，<code>./output_image.jpg</code> 为转换后的图片。注意不要转换太大的图片。</p>
+<h2 id="温馨建议"><a href="#温馨建议" class="headerlink" title="温馨建议"></a>温馨建议</h2><ol>
+<li>转换图片大小不要超过200k</li>
+<li>微信不支持外链，点击原文链接跳转到我的博客查看，或者给我发送消息“风格转换”，我将训练集链接发给你。</li>
+<li>建议不要转化美女图片，也不要问我为什么，辣眼睛我不想说。</li>
+</ol>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p><a href="http://note.youdao.com/noteshare?id=b6e224ee28320295ce5a4ab76768443a&amp;sub=B0EAF813717E4F65B2C03BD969E9F2A9" target="_blank" rel="external">Anaconda和conda介绍</a><br><a href="http://note.youdao.com/noteshare?id=3e92e8306616ca69e7142c1926d96faf&amp;sub=wcp1505899337067547" target="_blank" rel="external">Jupyter notebook 介绍</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Udacity的深度学习9月20号开课了，花了我 4000 大洋，可是要认真做笔记了。  &lt;/p&gt;
+&lt;p&gt;刚开始就先让体验了一下 fast-style-transfer 图片风格转换，的确是一件挺好玩的事，在这里就给大家分享一下。&lt;br&gt;&lt;img src=&quot;https://mmbiz.qpic.cn/mmbiz_png/zPicd3t2YJZ1Qds87OdjO2txYS8YZMYNhoE38epYqIQLRCpumRnwGopqOFgEcHYSYVKE9VrA9Ya3bFoJUWlgpJA/0?wx_fmt=png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DeepLearning" scheme="http://yoursite.com/categories/DeepLearning/"/>
+    
+    
+      <category term="-DeepLearning -Python" scheme="http://yoursite.com/tags/DeepLearning-Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python练习题（三）-视频展示网站</title>
