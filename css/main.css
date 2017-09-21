@@ -1727,7 +1727,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #24ffff;
+  background: #c7ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2760,7 +2760,7 @@ pre .javascript .function {
 }
 .sidebar {
   display: none;
-  right: auto;
+  right: true;
   bottom: auto;
   -webkit-transform: none;
 }
@@ -2913,4 +2913,14 @@ pre .javascript .function {
   list-style: none;
   text-align: left;
   font-size: 14px;
+}
+.headband {
+  background-color: #007dc5;
+}
+.site-meta {
+  background-color: #007dc5;
+}
+.post-button .btn:hover {
+  background-color: #007dc5;
+  border-color: #007dc5;
 }
