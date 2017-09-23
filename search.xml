@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[深度学习第一周（二）]]></title>
+      <url>%2F2017%2F09%2F23%2F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
+      <content type="text"><![CDATA[目标 Regression Models (回归模型) 学习 Scikit-Learn 搭建回归模型 准备工作及知识环境配置 选择 Python2 版本 1conda create -n siraj-regression python=2 安装 pandas,matplotlib,scikit-learn 1conda install pandas matplotlib scikit-learn 参考资料 Pandas (Python 数据处理库) Scikit-learn (综合性 Python 机器学习库) Matplotlib (Matplotlib 官方教程) Siraj 的线性回归Youtobe 地址 ：Siraj 内容： 使用线性回归计算脑容量和体重之间的关系 操作步骤 环境配置（创建环境，进入环境，安装包） 123conda create -n siraj-regression python=2activate siraj-regressionconda install pandas matplotlib scikit-learn 下载训练数据文件 1git clone https://github.com/llSourcell/linear_regression_demo.git 执行 demo.py效果如图： 线性回归注意线性回归隐含一系列前提假设，并非适合所有情形，因此注意两个问题 适用于线性数据如果训练数据包含非线性关系，你需要：调整数据，增加特征值数量或选用其他模型 容易受异常值影响数据集中存在不符合总体规律的异常值时，会影响最终结果 多元线性回归只有单个预测变量时，线性模型公式为 $y = mx$两个预测变量时，预测公式为 $y = m_1x_1+m_2x_2+b$多个预测变量同理，不影响编程 线性回归练习题目： 构建线性回归模型，根据各国男性人口的 身体质量指数 (BMI) 来预测该国人口平均寿命。绘制线形图并预测 BMI 为 21 的寿命 提示： 仿照 demo.py 利用 pandas 的函数 read_csv 读取 bmi_and_life.csv 文件 构建 sklearn 的线性模型并训练 利用 matplotlib.pyplot 绘图 数据文件 bmi_and_life.csv 点这里 答案：点这里 bmi_and_life.py 文件]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[深度学习第一周(一)]]></title>
       <url>%2F2017%2F09%2F21%2F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%91%A8%2F</url>
       <content type="text"><![CDATA[Udacity的深度学习9月20号开课了，花了我 4000 大洋，可是要认真做笔记了。 刚开始就先让体验了一下 fast-style-transfer 图片风格转换，的确是一件挺好玩的事，在这里就给大家分享一下。 效果展示 效果确实很抽象。 环境搭建 安装地址：Anaconda 选择你喜欢的版本（我的是Anaconda3-4.4 64位） 安装过程就不说了，完成之后打开 Anaconda Prompt 终端，输入conda upgrade --all，更新所有包 win 环境需要安装 TensorFlow 0.12.1、Python 3.5、Pillow 3.4.2、scipy 0.18.1 和 numpy 1.11.2 1234conda create -n style-transfer python=3.5activate style-transferpip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflowconda install scipy pillow 以上代码意思是创建python3.5的环境，进入此环境，并且在此环境下使用清华源安装tensorflow，使用 conda 安装 scipy和pillow。 下载 fast-style-transfer GitHub 资源库代码 1git clone https://github.com/lengstrom/fast-style-transfer.git fast-style-transfer 项目需要自己训练图片风格，然后将图片转换为你训练的风格。这里提供几种训练好的数据集，下载任意一个到fast-style-transfer 项目文件夹下。 La Muse Rain Princess Udnie Scream Wave Wreck 在之前的 style-transfer 的环境下，进入 fast-style-transfer 的文件夹输入 1python evaluate.py --checkpoint ./rain-princess.ckpt --in-path &lt;path_to_input_file&gt; --out-path ./output_image.jpg &lt;path_to_input_file&gt; 为要转换图片的位置，./rain-princess.ckpt 为训练的数据集，./output_image.jpg 为转换后的图片。注意不要转换太大的图片。 温馨建议 转换图片大小不要超过200k 微信不支持外链，点击原文链接跳转到我的博客查看，或者给我发送消息“风格转换”，我将训练集链接发给你。 建议不要转化美女图片，也不要问我为什么，辣眼睛我不想说。 资料Anaconda和conda介绍Jupyter notebook 介绍]]></content>
