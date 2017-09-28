@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[你没有迟到，只是活在自己的时区里]]></title>
+      <url>%2F2017%2F09%2F28%2F%E4%BD%A0%E6%B2%A1%E6%9C%89%E8%BF%9F%E5%88%B0%EF%BC%8C%E5%8F%AA%E6%98%AF%E6%B4%BB%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E6%97%B6%E5%8C%BA%E9%87%8C%2F</url>
+      <content type="text"><![CDATA[在命运为你安排的属于自己的时区里，一切都准时。 纽约时间比加州时间早三个小时，New York is 3 hours ahead of California, 但加州时间并没有变慢。but it does not make California slow. 有人22岁就毕业了，Someone graduated at the age of 22, 但等了五年才找到好的工作！but waited 5 years before securing a good job! 有人25岁就当上CEO，Someone became a CEO at 25, 却在50岁去世。and died at 50. 也有人迟到50岁才当上CEO，While another became a CEO at 50, 然后活到90岁。and lived to 90 years. 有人依然单身，Someone is still single, 同时也有人已婚。while someone else got married. 奥巴马55岁就退休，Obama retires at 55, 川普70岁才开始当总统。but Trump starts at 70. 世上每个人本来就有自己的发展时区。Absolutely everyone in this world works based on their Time Zone. 身边有些人看似走在你前面，People around you might seem to go ahead of you, 也有人看似走在你后面。some might seem to be behind you. 但其实每个人在自己的时区有自己的步程。But everyone is running their own RACE, in their own TIME. 不用嫉妒或嘲笑他们。Don’t envy them or mock them. 他们都在自己的时区里，你也是！They are in their TIME ZONE, and you are in yours! 生命就是等待正确的行动时机。Life is about waiting for the right moment to act. 所以，放轻松。So, RELAX. 你没有落后。You’re not LATE. 你没有领先。You’re not EARLY. 在命运为你安排的属于自己的时区里，一切都准时。You are very much ON TIME, and in your TIME ZONE Destiny set up for you.]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[深度学习第一周（二）]]></title>
       <url>%2F2017%2F09%2F23%2F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E5%91%A8%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
       <content type="text"><![CDATA[目标 Regression Models (回归模型) 学习 Scikit-Learn 搭建回归模型 准备工作及知识环境配置 选择 Python2 版本 1conda create -n siraj-regression python=2 安装 pandas,matplotlib,scikit-learn 1conda install pandas matplotlib scikit-learn 参考资料 Pandas (Python 数据处理库) Scikit-learn (综合性 Python 机器学习库) Matplotlib (Matplotlib 官方教程) Siraj 的线性回归Youtobe 地址 ：Siraj 内容： 使用线性回归计算脑容量和体重之间的关系 操作步骤 环境配置（创建环境，进入环境，安装包） 123conda create -n siraj-regression python=2activate siraj-regressionconda install pandas matplotlib scikit-learn 下载训练数据文件 1git clone https://github.com/llSourcell/linear_regression_demo.git 执行 demo.py效果如图： 线性回归注意线性回归隐含一系列前提假设，并非适合所有情形，因此注意两个问题 适用于线性数据如果训练数据包含非线性关系，你需要：调整数据，增加特征值数量或选用其他模型 容易受异常值影响数据集中存在不符合总体规律的异常值时，会影响最终结果 多元线性回归只有单个预测变量时，线性模型公式为 $y = mx$两个预测变量时，预测公式为 $y = m_1x_1+m_2x_2+b$多个预测变量同理，不影响编程 线性回归练习题目： 构建线性回归模型，根据各国男性人口的 身体质量指数 (BMI) 来预测该国人口平均寿命。绘制线形图并预测 BMI 为 21 的寿命 提示： 仿照 demo.py 利用 pandas 的函数 read_csv 读取 bmi_and_life.csv 文件 构建 sklearn 的线性模型并训练 利用 matplotlib.pyplot 绘图 数据文件 bmi_and_life.csv 点这里 答案：点这里 bmi_and_life.py 文件]]></content>
