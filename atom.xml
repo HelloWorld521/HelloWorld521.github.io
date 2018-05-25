@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-28T10:53:51.174Z</updated>
+  <updated>2018-05-25T03:59:57.320Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,118 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 高级特性（廖雪峰版）</title>
+    <link href="http://yoursite.com/2018/05/25/Python-%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7%EF%BC%88%E5%BB%96%E9%9B%AA%E5%B3%B0%E7%89%88%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/05/25/Python-高级特性（廖雪峰版）/</id>
+    <published>2018-05-25T03:37:54.000Z</published>
+    <updated>2018-05-25T03:59:57.320Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Python-高级特性"><a href="#Python-高级特性" class="headerlink" title="Python 高级特性"></a>Python 高级特性</h2><a id="more"></a>
+<h3 id="切片-Slice"><a href="#切片-Slice" class="headerlink" title="切片 Slice"></a>切片 Slice</h3><p><strong>切片</strong> 主要是对 list&amp;tuple 索引进行操作</p>
+<h3 id="迭代-Iteration"><a href="#迭代-Iteration" class="headerlink" title="迭代 Iteration"></a>迭代 Iteration</h3><p>使用<code>for ... in</code> 进行迭代操作</p>
+<p>Iterable：可迭代对象</p>
+<p><em>isinstance(str, Iterable)：</em> 是否为可迭代对象<br><em>enumerate(list)：</em> 将 list 转化为索引-元素对  </p>
+<h3 id="列表生产式-List-Comprehensions"><a href="#列表生产式-List-Comprehensions" class="headerlink" title="列表生产式 List Comprehensions"></a>列表生产式 List Comprehensions</h3><p>eg：生成10以内仅偶数的平方集合<br><code>[x*x for x in range(1,11) if x%2==0]</code></p>
+<h3 id="生产器-generator"><a href="#生产器-generator" class="headerlink" title="生产器 generator"></a>生产器 generator</h3><p><strong>gererator:</strong> 一边循环一边计算的机制,通过循环推算后续的元素，保存算法<br>定义 <strong>generator</strong> 使用 <strong>yield</strong> 输出关键字。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">### 生成器 作业  杨辉三角 </span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">triangles</span><span class="params">()</span>:</span></div><div class="line">    L=[<span class="number">1</span>]</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        <span class="keyword">yield</span> L</div><div class="line">        L = [<span class="number">1</span>]+[L[x]+L[x+<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> range(len(L)<span class="number">-1</span>)] +[<span class="number">1</span>]</div></pre></td></tr></table></figure></p>
+<h3 id="迭代器-Iterator"><a href="#迭代器-Iterator" class="headerlink" title="迭代器 Iterator"></a>迭代器 Iterator</h3><p><strong>迭代器：</strong> 可以被next()函数调用并不断返回下一个值的对象  </p>
+<p><em>isinstance(str, Iterator)：</em> 是否为迭代器<br><em>iter(str)：</em> 将str list dict转化为迭代器</p>
+<h2 id="Python-函数式编程"><a href="#Python-函数式编程" class="headerlink" title="Python 函数式编程"></a>Python 函数式编程</h2><h3 id="函数式编程-Functional-Programming"><a href="#函数式编程-Functional-Programming" class="headerlink" title="函数式编程 Functional Programming"></a>函数式编程 Functional Programming</h3><p><strong>函数式编程</strong>就是一种抽象程度很高的编程范式，纯粹的函数式编程语言编写的函数没有变量，因此，任意一个函数，只要输入是确定的，输出就是确定的，这种纯函数我们称之为没有副作用。</p>
+<p><strong>函数式编程</strong>的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数！</p>
+<p>Python 对函数式编程提供部分支持。</p>
+<h3 id="高阶函数-Higher-order-function"><a href="#高阶函数-Higher-order-function" class="headerlink" title="高阶函数 Higher-order function"></a>高阶函数 Higher-order function</h3><ul>
+<li><strong>变量可以指向函数</strong>  </li>
+<li><strong>函数名是指向函数的变量</strong>  </li>
+</ul>
+<p>既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为<strong>高阶函数</strong>。</p>
+<h4 id="map-reduce-函数"><a href="#map-reduce-函数" class="headerlink" title="map/reduce 函数"></a>map/reduce 函数</h4><p><em>map(函数, Iterable)：</em> 两个参数，第一个为函数，第二个为可迭代对象，将函数依次作用到 <code>Iterable</code> 的每个元素，将结果作为 <code>Iterator</code> 返回。<br><em>reduce(函数, Iterable)：</em> 将函数的结果和 iterable 的下一元素做累积计算，函数必须接受两个参。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># eg：str to int</span></div><div class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</div><div class="line"></div><div class="line">DIGITS = &#123;<span class="string">'0'</span>: <span class="number">0</span>, <span class="string">'1'</span>: <span class="number">1</span>, <span class="string">'2'</span>: <span class="number">2</span>, <span class="string">'3'</span>: <span class="number">3</span>, <span class="string">'4'</span>: <span class="number">4</span>, <span class="string">'5'</span>: <span class="number">5</span>, <span class="string">'6'</span>: <span class="number">6</span>, <span class="string">'7'</span>: <span class="number">7</span>, <span class="string">'8'</span>: <span class="number">8</span>, <span class="string">'9'</span>: <span class="number">9</span>&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">str2int</span><span class="params">(s)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(x, y)</span>:</span></div><div class="line">        <span class="keyword">return</span> x * <span class="number">10</span> + y</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">char2num</span><span class="params">(s)</span>:</span></div><div class="line">        <span class="keyword">return</span> DIGITS[s]</div><div class="line">    <span class="keyword">return</span> reduce(fn, map(char2num, s))</div></pre></td></tr></table></figure>
+<h4 id="filter-函数"><a href="#filter-函数" class="headerlink" title="filter 函数"></a>filter 函数</h4><p>filter 用于过滤序列  </p>
+<p><em>filter(函数, iterable)：</em> 将函数依次作用于每个元素，根据返回值是Ture还是false决定保留还是丢弃该元素。返回结果<code>Iterator</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 练习 filter求素数</span></div><div class="line"></div><div class="line"><span class="comment"># 从3开始的奇数序列</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_odd_iter</span><span class="params">()</span>:</span></div><div class="line">    n = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        n = n + <span class="number">2</span></div><div class="line">        <span class="keyword">yield</span> n</div><div class="line">        </div><div class="line"><span class="comment"># 定义筛选函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_not_divisible</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">lambda</span> x:x%n&gt;<span class="number">0</span></div><div class="line">        </div><div class="line"><span class="comment"># 定义</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">primes</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">yield</span> <span class="number">2</span></div><div class="line">    it = _odd_tier() <span class="comment"># 初始序列</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        n = next(it) <span class="comment"># 返回序列第一个数</span></div><div class="line">        <span class="keyword">yield</span> n</div><div class="line">        it = filter(_not_divisible(n), it)</div></pre></td></tr></table></figure>
+<h4 id="sorted-排序"><a href="#sorted-排序" class="headerlink" title="sorted 排序"></a>sorted 排序</h4><p><em>sorted(list, key=函数, reverse=True)：</em> 接收一个<code>key</code>函数，对list进行排序，reverse确定是否反向排序</p>
+<h3 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h3><p>高阶函数可以接受函数作为参数，也可以把函数作为结果返回</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># eg  返回求和的函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">lazy_sum</span><span class="params">(*args)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">()</span>:</span></div><div class="line">        ax = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> args:</div><div class="line">            ax = ax + n</div><div class="line">        <span class="keyword">return</span> ax</div><div class="line">    <span class="keyword">return</span> sum</div></pre></td></tr></table></figure>
+<h4 id="闭包问题"><a href="#闭包问题" class="headerlink" title="闭包问题"></a>闭包问题</h4><p>注意：返回的函数中引用了局部变量<code>args</code>，当返回一个函数后，其内部的局部变量还被新的函数引用。</p>
+<p><code>！返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。如果一定要引用，在创建一个函数，将变量作为参数绑定当前值</code></p>
+<p>1.内部函数一般无法修改外部函数的参数<br>2.想要修改需要声明 nonlocal<br>3.内部函数可以修改外部list中的元素  </p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><p>关键字<code>lambda</code>标识匿名函数，<code>:</code>之前为参数，之后为返回结果</p>
+<h3 id="装饰器（Decorator）"><a href="#装饰器（Decorator）" class="headerlink" title="装饰器（Decorator）"></a>装饰器（Decorator）</h3><p><strong>装饰器</strong> 在代码运行期间动态增强功能的方式，本质上是一个装饰器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># eg 定义一个能打印日志的decorator</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></div><div class="line">        <span class="comment"># 防止name改变</span></div><div class="line"><span class="meta">        @functools.wraps(func)  </span></div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></div><div class="line">            print(<span class="string">'%s %s():'</span> % (text,  func.__name__))</div><div class="line">            <span class="keyword">return</span> func(*args, **kw)</div><div class="line">        <span class="keyword">return</span> wrapper</div><div class="line">    <span class="keyword">return</span> decorator</div><div class="line">    </div><div class="line"><span class="comment"># 用法</span></div><div class="line"><span class="meta">@log('execute') def func()...</span></div><div class="line"><span class="comment"># 相当于</span></div><div class="line">func = log(<span class="string">'execute'</span>)func</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Python-高级特性&quot;&gt;&lt;a href=&quot;#Python-高级特性&quot; class=&quot;headerlink&quot; title=&quot;Python 高级特性&quot;&gt;&lt;/a&gt;Python 高级特性&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="Python基础" scheme="http://yoursite.com/tags/Python%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 基础（廖雪峰版）</title>
+    <link href="http://yoursite.com/2018/05/25/Python%20%E5%9F%BA%E7%A1%80%EF%BC%88%E5%BB%96%E9%9B%AA%E5%B3%B0%E7%89%88%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/05/25/Python 基础（廖雪峰版）/</id>
+    <published>2018-05-25T03:28:56.000Z</published>
+    <updated>2018-05-25T03:59:43.104Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Python-基础"><a href="#Python-基础" class="headerlink" title="Python 基础"></a>Python 基础</h2><h3 id="数据类型和变量"><a href="#数据类型和变量" class="headerlink" title="数据类型和变量"></a>数据类型和变量</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">整数  </div><div class="line">浮点数  </div><div class="line">字符串  </div><div class="line">布尔值  </div><div class="line">空值（<span class="keyword">None</span>）</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量本身类型不固定 <strong>动态语言</strong></p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>不能变的变量<br><strong>使用大写的变量名标识常亮</strong></p>
+<p>精确除法 <code>/</code><br>整数除法 <code>//</code><br>余数 <code>%</code>  </p>
+<h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><p><em>ASCII 码：</em> 127个字符（一字节）<br><em>UTF-8：</em> 可变长编码，包含ASCII编码<br><em>Unicode：</em> 统一各国语音到一套编码里（常用两字节） </p>
+<p><em>ord(s)：</em> 获取字符的整数表示<br><em>chr(编码)：</em> 编码转化为对应字符<br><em>str.encode(‘utf-8’)：</em> 字符串转化为指定编码的字节码<br><em>b’\xe4’.decode(‘uft-8’)：</em> 字节码转化为字符串  </p>
+<p>注意：计算机内存中统一使用 Unicode 编码，需要保存硬盘或者需要传输转换为UTF-8编码  </p>
+<h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><p>同 C 语言一致：<br>‘%d’  整数<br>‘%f’  浮点数<br>‘%s’  字符串<br>‘%x’  十六进制整数</p>
+<p><em>format():</em> 格式化方法，替换占位符  </p>
+<h3 id="list-amp-tuple"><a href="#list-amp-tuple" class="headerlink" title="list&amp;tuple"></a>list&amp;tuple</h3><p>list：可变的有序表 []  </p>
+<p><em>append(‘’)：</em> 追加元素<br><em>insert(i, ‘’)：</em> 插入元素<br><em>pop(i)：</em> 删除元素</p>
+<p>tuple：指向不可变的有序列表 (1,)</p>
+<h3 id="条件判断和循环"><a href="#条件判断和循环" class="headerlink" title="条件判断和循环"></a>条件判断和循环</h3><p>if … elif … else: …<br>for x in …<br>while 循环  </p>
+<h3 id="dict-amp-set"><a href="#dict-amp-set" class="headerlink" title="dict&amp;set"></a>dict&amp;set</h3><p>dict：字典dictionary 类似 map(key-value) 具有极快的查找速度，key 是不可变对象。   </p>
+<p><em>in：</em> 判断 key 是否存在<br><em>get()：</em> 获取元素<br><em>pop()：</em> 删除元素  </p>
+<p>与 list 比较，dict 特点：</p>
+<ol>
+<li>查找插入速度快，不随 key 增加变慢</li>
+<li>占用大量内存，浪费内存多  </li>
+</ol>
+<p>list特点：</p>
+<ol>
+<li>查找和插入随着元素的增加而增加</li>
+<li>占用空间小，浪费内存少 </li>
+</ol>
+<p>set: 无序的 key 值集合。  </p>
+<p><em>set([])：</em> 生成 set 集合<br><em>add(key)：</em> 添加元素<br><em>remove(key)：</em> 删除元素  </p>
+<h2 id="Python-函数"><a href="#Python-函数" class="headerlink" title="Python 函数"></a>Python 函数</h2><h3 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h3><p><strong>运算函数</strong><br>abs() mix() max()<br><strong>数据类型转化</strong><br>int() float() str() bool()   </p>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcname</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="number">1</span></div></pre></td></tr></table></figure>
+<p><strong>空函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">funcname</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<p><strong>递归函数</strong></p>
+<p>递归函数的优点是定义简单，逻辑清晰。理论上，所有的递归函数都可以写成循环的方式，但循环的逻辑不如递归清晰。  </p>
+<p>使用递归函数需要注意防止<strong>栈溢出</strong>。在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出。 </p>
+<p>解决递归调用栈溢出的方法是通过<strong>尾递归</strong>优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的。</p>
+<p><strong>尾递归</strong>是指，在函数返回的时候，调用自身本身，并且，return语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Python-基础&quot;&gt;&lt;a href=&quot;#Python-基础&quot; class=&quot;headerlink&quot; title=&quot;Python 基础&quot;&gt;&lt;/a&gt;Python 基础&lt;/h2&gt;&lt;h3 id=&quot;数据类型和变量&quot;&gt;&lt;a href=&quot;#数据类型和变量&quot; class=&quot;headerlink&quot; title=&quot;数据类型和变量&quot;&gt;&lt;/a&gt;数据类型和变量&lt;/h3&gt;&lt;figure class=&quot;highlight fortran&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;整数  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;浮点数  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;字符串  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;布尔值  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;空值（&lt;span class=&quot;keyword&quot;&gt;None&lt;/span&gt;）&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="Python基础" scheme="http://yoursite.com/tags/Python%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>你没有迟到，只是活在自己的时区里</title>
